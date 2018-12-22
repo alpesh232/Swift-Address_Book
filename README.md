@@ -9,6 +9,7 @@ Here´s how you would access ABAddressBook via SwiftAddressBook:
 
 Request access
 
+```ruby
 swiftAddressBook?.requestAccessWithCompletion({ (success, error) -> Void in
 if success {
 //do something with swiftAddressBook
@@ -17,8 +18,11 @@ else {
 //no success. Optionally evaluate error
 }
 })
+```
+
 Use Addressbook (e.g. get array of all people and log their phone numbers)
 
+```ruby
 if let people = swiftAddressBook?.allPeople {
 for person in people {
 //person.phoneNumbers is a "multivalue" entry
@@ -27,4 +31,6 @@ for person in people {
 NSLog("%@", person.phoneNumbers?.map( {$0.value} ))
 }
 }
+```
+
 Complicated Swift typecasting to NS-..., thousand times of unwrapping optionals, figuring out which constant is the key to your person property, distinguishing between group, source or person - nothing that you have to deal with any more
